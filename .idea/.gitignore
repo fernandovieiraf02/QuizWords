@@ -5,3 +5,5 @@ compiler.xml
 gradle.xml
 misc.xml
 vcs.xml
+/codeStyles/Project.xml
+/codeStyles/codeStyleConfig.xml

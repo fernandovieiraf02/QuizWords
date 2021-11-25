@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private val tvTimer by lazy { findViewById<TextView>(R.id.tvTimer) }
     private val tvList by lazy { findViewById<TextView>(R.id.tvList) }
     private val btSend by lazy { findViewById<Button>(R.id.btSend) }
-    private var scoreCounter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,15 +45,22 @@ class MainActivity : AppCompatActivity() {
         colorsListMock.any { color -> color.equals(input, true) }
             .takeIf { it }
             ?.let {
-                inputList.add(input)
-                val sb = StringBuilder()
-                inputList.forEach { item ->
-                    sb.append(item)
-                    sb.append("\n")
-                }
-
-                tvScore.text = "${inputList.size}"
-                tvList.text = sb
+                updateQuizList(input)
+                refreshScore()
             }
+    }
+
+    private fun refreshScore() {
+        tvScore.text = "${inputList.size}"
+    }
+
+    private fun updateQuizList(input: String) {
+        inputList.add(input)
+        val sb = StringBuilder()
+        inputList.forEach { item ->
+            sb.append(item)
+            sb.append("\n")
+        }
+        tvList.text = sb
     }
 }

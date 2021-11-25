@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         "Vermelho",
         "Branco",
         "Amarelo",
-        "Cinza"
+        "Cinza",
+        "Verde",
+        "Rosa"
     )
 
     private val inputList = mutableSetOf<String>()

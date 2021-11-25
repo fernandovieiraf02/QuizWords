@@ -1,12 +1,10 @@
 package com.example.quizwords
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.SpannableString
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
-import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,15 +44,22 @@ class MainActivity : AppCompatActivity() {
         colorsListMock.any { color -> color.equals(input, true) }
             .takeIf { it }
             ?.let {
-                inputList.add(input)
-                val sb = StringBuilder()
-                inputList.forEach { item ->
-                    sb.append(item)
-                    sb.append("\n")
-                }
-
-                tvScore.text = "${inputList.size}"
-                tvList.text = sb
+                updateList(input)
+                refreshScore()
             }
+    }
+
+    private fun refreshScore() {
+        tvScore.text = "${inputList.size}"
+    }
+
+    private fun updateList(input: String) {
+        inputList.add(input)
+        val sb = StringBuilder()
+        inputList.forEach { item ->
+            sb.append(item)
+            sb.append("\n")
+        }
+        tvList.text = sb
     }
 }

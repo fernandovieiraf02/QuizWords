@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val colorsListMock = listOf(
         "Azul",
         "Vermelho",
-        "Branca",
+        "Branco",
         "Amarelo",
         "Cinza"
     )
